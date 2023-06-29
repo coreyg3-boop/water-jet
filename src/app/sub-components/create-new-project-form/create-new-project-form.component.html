@@ -1,0 +1,55 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Company Name</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Rivian">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Job Name</mat-label>
+        <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Select a Material</mat-label>
+      <mat-select [formControl]="materialControl">
+        <!-- <mat-option>-- None --</mat-option> -->
+        <mat-optgroup *ngFor="let group of materialGroups" [label]="group.name"
+                      [disabled]="group.disabled">
+          <mat-option *ngFor="let material of group.material" [value]="material.value">
+            {{material.viewValue}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Material Thickness</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select a Unit</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option *ngFor="let unit of units" [value]="unit.value">
+          {{unit.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+     
+<!-- <mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+      <p>You selected: {{materialGroups}} {{selected}}</p>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </form>
+  

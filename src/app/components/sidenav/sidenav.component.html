@@ -1,0 +1,31 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <nav>
+        <a routerLink='/projects'>
+          <p>Project List</p>
+        </a>
+        <a routerLink='/inProgress'>
+          <p>In-Progress Projects</p>
+        </a>
+        <a routerLink='/completed'>
+          <p>Completed Projects</p>
+        </a>
+        <a routerLink='/maintenance'>
+          <p>Jet Maintenance</p>
+        </a>
+      </nav>
+      <!-- <p *ngIf="showFiller">Create New Project</p> -->
+      <button routerLink='/createProject' mat-raised-button>
+        Create New Project
+      </button>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button class="menu-button" type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>
+  
